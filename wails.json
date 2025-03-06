@@ -1,0 +1,25 @@
+{
+  "name": "titration-app",
+  "outputfilename": "titration-app",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "vet-q",
+    "email": "kwonok5945@gmail.com"
+  },
+  "bindings": {
+    "package": "main",
+    "structs": [
+      {
+        "name": "App",
+        "methods": [
+          {
+            "name": "CalculateTCID50"
+          }
+        ]
+      }
+    ]
+  }
+}

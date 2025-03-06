@@ -1,0 +1,17 @@
+/* frontend/src/index.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+/* src/styles/App.css */
+.app-container {
+    color: black !important; /* ✅ 글자 색상 강제 적용 */
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3, p, label {
+    color: black !important; /* ✅ 모든 텍스트 검은색으로 강제 */
+}
