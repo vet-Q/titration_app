@@ -1,89 +1,195 @@
 /* 기본 스타일: 전체 폰트, 배경 색 등 */
 body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f6f6f6;
-  }
-  
-  /* 앱 컨테이너 중앙 정렬 및 최대 너비 지정 */
-  .app-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* 타이틀 스타일 */
-  .title {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  /* 섹션별 스타일: 여백, 배경, 그림자, 둥근 모서리 */
-  .section {
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  /* 버튼 스타일 */
-  .calculate-button {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .calculate-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* 결과와 차트 영역을 나란히 배치하는 레이아웃 */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f6f6f6;
+}
+
+/* 앱 컨테이너 중앙 정렬 및 최대 너비 지정 */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 타이틀 스타일 */
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* 섹션별 스타일: 여백, 배경, 그림자, 둥근 모서리 */
+.section {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 버튼 스타일 */
+.calculate-button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.calculate-button:hover {
+  background-color: #0056b3;
+}
+
+/* 결과와 차트 영역을 나란히 배치하는 레이아웃 */
+.row-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* 결과 컨테이너와 차트 컨테이너 기본 스타일 */
+.result-container,
+.chart-container {
+  flex: 1 1 300px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 결과 디스플레이 내 제목 스타일 */
+.result-display h2,
+.result-display h3 {
+  margin-top: 0;
+  color: #444;
+}
+
+/* 입력 요소 스타일 */
+input[type="number"] {
+  padding: 8px;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* 반응형: 화면 너비 768px 이하일 때 레이아웃 수직 정렬 */
+@media (max-width: 768px) {
   .row-layout {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: column;
   }
-  
-  /* 결과 컨테이너와 차트 컨테이너 기본 스타일 */
-  .result-container,
-  .chart-container {
-    flex: 1 1 300px;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  /* 결과 디스플레이 내 제목 스타일 */
-  .result-display h2,
-  .result-display h3 {
-    margin-top: 0;
-    color: #444;
-  }
-  
-  /* 입력 요소 스타일 */
-  input[type="number"] {
-    padding: 8px;
-    width: 100%;
-    max-width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  /* 반응형: 화면 너비 768px 이하일 때 레이아웃 수직 정렬 */
-  @media (max-width: 768px) {
-    .row-layout {
-      flex-direction: column;
-    }
-  }
-  
+}
+
+/* ✅ 제목 및 수정 버튼 정렬 */
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ✅ 작은 수정 버튼 */
+.small-edit-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  /* color: #555; */
+}
+
+.small-edit-button:hover {
+  color: #222;
+}
+
+/* ✅ 입력 필드 스타일 */
+.input-section {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+/* ✅ 수정 모달 창 스타일 */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  width: 340px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.3s ease-in-out;
+}
+
+/* ✅ 모달 입력 필드 스타일 개선 */
+.modal-content label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.modal-content input {
+  width: 90%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.modal-content input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* ✅ 저장 버튼 스타일 */
+.save-button {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-top: 15px;
+  transition: background-color 0.3s;
+}
+
+.save-button:hover {
+  background-color: #0056b3;
+}
+
+/* ✅ 모달 애니메이션 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

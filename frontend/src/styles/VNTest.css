@@ -1,0 +1,147 @@
+.vnt-wellplate {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.well-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sample-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sample-input {
+    width: 120px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.well-container {
+    display: flex;
+    gap: 5px;
+}
+
+.well {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #ddd;
+    border: 1px solid #aaa;
+    cursor: pointer;
+}
+
+.well.positive {
+    background-color: red;
+}
+/* ✅ 타이틀을 상단 중앙에 배치 */
+.vnt-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ✅ 기본 레이아웃 (가로 정렬) */
+.vnt-layout {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* ✅ VNT 검사 (왼쪽) */
+.vnt-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ✅ Back Titration (오른쪽) */
+.back-titration-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ 반응형 디자인: 화면이 좁아지면 세로 정렬 */
+@media (max-width: 768px) {
+    .vnt-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .back-titration-container {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ✅ Back Titration 전체 컨테이너 */
+.back-titration {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+}
+
+/* ✅ Well 그룹 (10^0, 10^-1, 10^-2, 10^-3 묶음) */
+.well-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid gray;
+    padding: 12px; /* 🔥 기존보다 살짝 줄임 */
+    margin-bottom: 10px; /* 🔥 그룹 간 간격 */
+    width: 100%;
+    min-width: 260px;
+    background-color: white;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* ✅ Well 행 (10^-0, 10^-1 내부) */
+.well-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px; /* 🔥 컬럼 간 간격 */
+    margin-bottom: 6px; /* 🔥 🔽 2행 간 간격 줄임 (기존보다 좁게) */
+}
+
+/* ✅ 개별 Well 스타일 */
+.well {
+    width: 30px;
+    height: 30px;
+    background-color: #eee;
+    border-radius: 50%;
+    border: 1px solid #bbb;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out, transform 0.1s;
+}
+
+.well.selected {
+    background-color: red;
+    transform: scale(1.1);
+}
+
+/* ✅ 선택된 개수 표시 */
+.count-display {
+    margin-top: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+}

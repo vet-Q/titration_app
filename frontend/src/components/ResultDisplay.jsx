@@ -1,7 +1,7 @@
 import React from "react";
 
 const ResultDisplay = ({ result, virusVolume, titerVirusVolume, totalVolumeML }) => {
-    if (!result || !virusVolume || !titerVirusVolume || !totalVolumeML) return <p>없어요요</p>;
+    if (!result || !virusVolume || !titerVirusVolume || !totalVolumeML) return <p></p>;
 
     // 값이 숫자인지 확인하고 과학적 표기법으로 변환하는 함수
     const formatScientific = (value) => {

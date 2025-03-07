@@ -1,0 +1,241 @@
+/* ✅ VNT 전체 컨테이너 */
+.vnt-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ✅ 중앙 정렬 */
+    width: 100%;
+    max-width: 1400px; /* ✅ 최대 크기 설정 */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ✅ 헤더 스타일 (타이틀 중앙 정렬) */
+.vnt-header {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* ✅ 96-well과 Back Titration을 감싸는 레이아웃 */
+.vnt-layout {
+    display: flex;
+    justify-content: center; /* ✅ 중앙 정렬 */
+    align-items: flex-start;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+/* ✅ 96-well Plate 컨테이너 */
+.well-plate-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 450px;
+}
+
+/* ✅ Back Titration 컨테이너 */
+.back-titration-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    min-width: 300px;
+}
+
+/* ✅ 반응형 적용 */
+@media (max-width: 900px) {
+    .vnt-layout {
+        flex-direction: column; /* ✅ 화면이 작아지면 세로 정렬 */
+        align-items: center;
+    }
+
+    .well-plate-container,
+    .back-titration-container {
+        width: 100%;
+        max-width: 600px; /* ✅ 세로 배치 시 최대 너비 설정 */
+    }
+}
+
+
+
+/* ✅ 개별 샘플 컨테이너 */
+.sample-section {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+/* ✅ 샘플명 입력 & 수정 버튼 */
+.sample-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.sample-header input {
+    flex-grow: 1;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* ✅ 버튼 공통 스타일 */
+.confirm-button,
+.edit-button {
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.confirm-button:hover,
+.edit-button:hover {
+    background-color: #0056b3;
+}
+
+/* ✅ 96-well 영역 */
+.well-plate {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.well-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.well {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #ddd;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.well.selected {
+    background-color: red;
+    transform: scale(1.1);
+}
+
+/* ✅ Back Titration */
+.back-titration {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+/* ✅ Back Titration 개별 그룹 */
+.well-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 280px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid gray;
+}
+
+/* ✅ Well Group 내부 레이아웃 */
+.well-group h4 {
+    margin-bottom: 5px;
+}
+
+.well-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* ✅ 선택된 개수 표시 */
+.count-display {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+}
+
+/* ✅ 반응형: 작은 화면에서는 한 줄 */
+@media (max-width: 768px) {
+    .vnt-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .back-titration-container {
+        width: 100%;
+    }
+
+    .sample-section {
+        width: 100%;
+    }
+}
+
+
+/* ✅ 샘플 추가/삭제 버튼 컨테이너 */
+.sample-buttons {
+    display: flex;
+    justify-content: center; /* 🔥 가운데 정렬 */
+    gap: 15px; /* 🔥 버튼 간격 조정 */
+    margin-top: 15px;
+    width: 100%;
+    max-width: 400px; /* 🔥 Well Plate와 너비 맞춤 */
+}
+
+/* ✅ 공통 버튼 스타일 */
+.add-sample-button, .remove-sample-button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    width: 150px; /* 🔥 버튼 크기 조정 */
+    text-align: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* ✅ 샘플 추가 버튼 */
+.add-sample-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.add-sample-button:hover {
+    background-color: #0056b3;
+}
+
+/* ✅ 샘플 삭제 버튼 */
+.remove-sample-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.remove-sample-button:hover {
+    background-color: #b22222;
+}
+
+/* ✅ 삭제 버튼 비활성화 스타일 */
+.remove-sample-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
