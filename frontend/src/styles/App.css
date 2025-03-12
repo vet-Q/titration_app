@@ -1,40 +1,67 @@
-/* 기본 스타일: 전체 폰트, 배경 색 등 */
+/* 🌙 라이트모드 & 다크모드 공통 스타일 */
+:root {
+  --background-color: #f6f6f6;
+  --text-color: #000000;
+  --section-bg: #ffffff;
+  --button-bg: #007bff;
+  --button-hover: #0056b3;
+  --modal-bg: white;
+  --modal-shadow: rgba(0, 0, 0, 0.3);
+  --input-border: #ccc;
+}
+
+/* 🌙 다크모드 스타일 */
+[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --section-bg: #1e1e1e;
+  --button-bg: #1e88e5;
+  --button-hover: #1565c0;
+  --modal-bg: #2c2c2c;
+  --modal-shadow: rgba(255, 255, 255, 0.2);
+  --input-border: #555;
+}
+
+/* 🌙 전체 배경 및 폰트 스타일 */
 body, html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #f6f6f6;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* 앱 컨테이너 중앙 정렬 및 최대 너비 지정 */
+/* 🌙 앱 컨테이너 중앙 정렬 */
 .app-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* 타이틀 스타일 */
+/* 🌙 타이틀 */
 .title {
   text-align: center;
   margin-bottom: 20px;
-  color: #333;
+  color: var(--text-color);
 }
 
-/* 섹션별 스타일: 여백, 배경, 그림자, 둥근 모서리 */
+/* 🌙 섹션 스타일 */
 .section {
   margin-bottom: 20px;
   padding: 15px;
-  background-color: #fff;
+  background-color: var(--section-bg);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.3s;
 }
 
-/* 버튼 스타일 */
+/* 🌙 버튼 스타일 */
 .calculate-button {
   display: block;
   width: 100%;
-  padding: 15px;
-  background-color: #007bff;
+  padding: 10px;
+  background-color: var(--button-bg);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -43,51 +70,66 @@ body, html {
   transition: background-color 0.3s ease;
 }
 
-.calculate-button:hover {
-  background-color: #0056b3;
+/* 🌙 저장 버튼 */
+.save-button {
+  width: 100%;
+  background-color: var(--button-bg);
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-top: 15px;
+  transition: background-color 0.3s;
 }
 
-/* 결과와 차트 영역을 나란히 배치하는 레이아웃 */
+.calculate-button:hover, .save-button:hover {
+  background-color: var(--button-hover);
+}
+
+/* 🌙 결과 & 차트 레이아웃 */
 .row-layout {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-/* 결과 컨테이너와 차트 컨테이너 기본 스타일 */
+/* 🌙 결과 & 차트 컨테이너 */
 .result-container,
 .chart-container {
   flex: 1 1 300px;
-  background-color: #fff;
+  background-color: var(--section-bg);
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.3s;
 }
 
-/* 결과 디스플레이 내 제목 스타일 */
-.result-display h2,
-.result-display h3 {
-  margin-top: 0;
-  color: #444;
-}
-
-/* 입력 요소 스타일 */
-input[type="number"] {
+/* 🌙 입력 필드 스타일 */
+input[type="number"], input[type="text"] {
   padding: 8px;
   width: 100%;
   max-width: 300px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--input-border);
   border-radius: 4px;
+  background: var(--section-bg);
+  color: var(--text-color);
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
 }
 
-/* 반응형: 화면 너비 768px 이하일 때 레이아웃 수직 정렬 */
+input[type="number"]:focus, input[type="text"]:focus {
+  border-color: var(--button-bg);
+}
+
+/* 🌙 반응형: 768px 이하에서 수직 정렬 */
 @media (max-width: 768px) {
   .row-layout {
     flex-direction: column;
   }
 }
 
-/* ✅ 제목 및 수정 버튼 정렬 */
+/* 🌙 제목과 수정 버튼 정렬 */
 .title-container {
   display: flex;
   align-items: center;
@@ -95,20 +137,20 @@ input[type="number"] {
   gap: 10px;
 }
 
-/* ✅ 작은 수정 버튼 */
+/* 🌙 작은 수정 버튼 */
 .small-edit-button {
   background: none;
   border: none;
   font-size: 16px;
   cursor: pointer;
-  /* color: #555; */
+  color: var(--text-color);
 }
 
 .small-edit-button:hover {
-  color: #222;
+  color: var(--button-hover);
 }
 
-/* ✅ 입력 필드 스타일 */
+/* 🌙 입력 필드 섹션 */
 .input-section {
   display: flex;
   gap: 10px;
@@ -116,7 +158,8 @@ input[type="number"] {
   justify-content: center;
   margin-bottom: 15px;
 }
-/* ✅ 수정 모달 창 스타일 */
+
+/* 🌙 모달 스타일 수정 */
 .modal {
   position: fixed;
   top: 0;
@@ -127,63 +170,41 @@ input[type="number"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeIn 0.3s ease-in-out;
+  z-index: 1000; /* ✅ 다른 요소 위에 표시 */
+  overflow: auto; /* ✅ 입력 필드가 가려지는 문제 해결 */
 }
 
+/* 🌙 모달 컨텐츠 */
 .modal-content {
-  background: white;
+  background: var(--modal-bg);
   padding: 20px;
   border-radius: 12px;
   text-align: center;
-  width: 340px;
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+  width: 90%; /* ✅ 화면 크기에 따라 조정 */
+  max-width: 400px; /* ✅ 최대 너비 설정 */
+  box-shadow: 0px 6px 15px var(--modal-shadow);
   animation: slideIn 0.3s ease-in-out;
+  position: relative; /* ✅ 버튼이 입력 필드를 가리지 않도록 함 */
 }
 
-/* ✅ 모달 입력 필드 스타일 개선 */
-.modal-content label {
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  margin-top: 10px;
-  text-align: left;
-}
-
+/* 🌙 입력 필드 */
 .modal-content input {
-  width: 90%;
+  width: 100%; /* ✅ 입력 필드가 꽉 차게 설정 */
   padding: 10px;
   margin-top: 5px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--input-border);
   border-radius: 6px;
   font-size: 14px;
+  background: var(--section-bg);
+  color: var(--text-color);
   outline: none;
-  transition: border-color 0.3s ease-in-out;
 }
 
 .modal-content input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  border-color: var(--button-bg);
 }
 
-/* ✅ 저장 버튼 스타일 */
-.save-button {
-  width: 100%;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 6px;
-  font-size: 16px;
-  margin-top: 15px;
-  transition: background-color 0.3s;
-}
-
-.save-button:hover {
-  background-color: #0056b3;
-}
-
-/* ✅ 모달 애니메이션 */
+/* 🌙 모달 애니메이션 */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -192,4 +213,54 @@ input[type="number"] {
 @keyframes slideIn {
   from { transform: translateY(-20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* 입력 필드 간 간격 조정 */
+  align-items: center;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px; /* 입력 필드 최대 너비 설정 */
+}
+
+.input-group label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 10px;
+  min-width: 180px; /* 레이블의 최소 너비 설정 */
+}
+
+.input-group input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: right; /* 숫자 입력 필드 정렬 */
+  width: 100%;
+  max-width: 200px; /* 입력 필드의 최대 너비 */
+}
+
+.confirm-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  max-width: 400px; /* 버튼 크기 조정 */
+}
+
+.confirm-button:hover {
+  background-color: #0056b3;
 }
